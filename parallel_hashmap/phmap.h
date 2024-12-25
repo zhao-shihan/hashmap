@@ -1,5 +1,5 @@
-#if !defined(phmap_h_guard_)
-#define phmap_h_guard_
+#if !defined(muc_impl_phmap_h_guard_)
+#define muc_impl_phmap_h_guard_
 
 // ---------------------------------------------------------------------------
 // Copyright (c) 2019, Gregory Popovitch - greg7mdp@gmail.com
@@ -124,7 +124,7 @@
     #include <string_view>
 #endif
 
-namespace phmap {
+namespace muc::impl::phmap {
 
 namespace priv {
 
@@ -5164,10 +5164,10 @@ public:
     void resize(typename Base::size_type hint) { this->rehash(hint); }
 };
 
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 
-namespace phmap {
+namespace muc::impl::phmap {
     namespace priv {
         template <class C, class Pred> 
         std::size_t erase_if(C &c, Pred pred) {
@@ -5232,4 +5232,4 @@ namespace phmap {
 #endif
 
 
-#endif // phmap_h_guard_
+#endif // muc_impl_phmap_h_guard_

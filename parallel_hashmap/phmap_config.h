@@ -1,5 +1,5 @@
-#if !defined(phmap_config_h_guard_)
-#define phmap_config_h_guard_
+#if !defined(muc_impl_phmap_config_h_guard_)
+#define muc_impl_phmap_config_h_guard_
 
 // ---------------------------------------------------------------------------
 // Copyright (c) 2019, Gregory Popovitch - greg7mdp@gmail.com
@@ -673,14 +673,14 @@
 #define PHMAP_ARRAYSIZE(array) \
   (sizeof(::phmap::macros_internal::ArraySizeHelper(array)))
 
-namespace phmap {
+namespace muc::impl::phmap {
 namespace macros_internal {
     // Note: this internal template function declaration is used by PHMAP_ARRAYSIZE.
     // The function doesn't need a definition, as we only use its type.
     template <typename T, size_t N>
     auto ArraySizeHelper(const T (&array)[N]) -> char (&)[N];
 }  // namespace macros_internal
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 #if PHMAP_HAVE_CPP_ATTRIBUTE(fallthrough)
     #define PHMAP_FALLTHROUGH [[fallthrough]]
@@ -776,4 +776,4 @@ namespace macros_internal {
 #endif  // PHMAP_HAVE_EXCEPTIONS
 
 
-#endif // phmap_config_h_guard_
+#endif // muc_impl_phmap_config_h_guard_

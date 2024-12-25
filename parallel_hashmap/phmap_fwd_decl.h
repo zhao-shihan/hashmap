@@ -1,5 +1,5 @@
-#if !defined(phmap_fwd_decl_h_guard_)
-#define phmap_fwd_decl_h_guard_
+#if !defined(muc_impl_phmap_fwd_decl_h_guard_)
+#define muc_impl_phmap_fwd_decl_h_guard_
 
 // ---------------------------------------------------------------------------
 // Copyright (c) 2019, Gregory Popovitch - greg7mdp@gmail.com
@@ -26,7 +26,7 @@
     namespace absl { template <class T> struct Hash; };
 #endif
 
-namespace phmap {
+namespace muc::impl::phmap {
 
 #if defined(PHMAP_USE_ABSL_HASH)
     template <class T> using Hash = ::absl::Hash<T>;
@@ -176,11 +176,11 @@ namespace phmap {
               typename Alloc = phmap::Allocator<phmap::priv::Pair<const Key, Value>>>
         class btree_multimap;
 
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 
 #ifdef _MSC_VER
      #pragma warning(pop)  
 #endif
 
-#endif // phmap_fwd_decl_h_guard_
+#endif // muc_impl_phmap_fwd_decl_h_guard_

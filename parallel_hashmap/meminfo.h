@@ -1,5 +1,5 @@
-#if !defined(spp_memory_h_guard)
-#define spp_memory_h_guard
+#if !defined(muc_impl_spp_memory_h_guard)
+#define muc_impl_spp_memory_h_guard
 
 #include <cstdint>
 #include <cstring>
@@ -192,4 +192,4 @@ namespace spp
 
 }
 
-#endif // spp_memory_h_guard
+#endif // muc_impl_spp_memory_h_guard

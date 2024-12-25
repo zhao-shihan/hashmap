@@ -1,5 +1,5 @@
-#if !defined(phmap_dump_h_guard_)
-#define phmap_dump_h_guard_
+#if !defined(muc_impl_phmap_dump_h_guard_)
+#define muc_impl_phmap_dump_h_guard_
 
 // ---------------------------------------------------------------------------
 // Copyright (c) 2019, Gregory Popovitch - greg7mdp@gmail.com
@@ -23,7 +23,7 @@
 #include <fstream>
 #include <sstream>
 #include "phmap.h"
-namespace phmap
+namespace muc::impl::phmap
 {
 
 namespace type_traits_internal {
@@ -230,7 +230,7 @@ private:
     std::ifstream ifs_;
 };
 
-} // namespace phmap
+} // namespace muc::impl::phmap
 
 
 #ifdef CEREAL_SIZE_TYPE
@@ -311,4 +311,4 @@ namespace cereal
 
 
 
-#endif // phmap_dump_h_guard_
+#endif // muc_impl_phmap_dump_h_guard_

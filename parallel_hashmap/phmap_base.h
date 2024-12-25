@@ -1,5 +1,5 @@
-#if !defined(phmap_base_h_guard_)
-#define phmap_base_h_guard_
+#if !defined(muc_impl_phmap_base_h_guard_)
+#define muc_impl_phmap_base_h_guard_
 
 // ---------------------------------------------------------------------------
 // Copyright (c) 2019, Gregory Popovitch - greg7mdp@gmail.com
@@ -65,7 +65,7 @@
     #pragma warning(disable : 4820) // '6' bytes padding added after data member
 #endif  // _MSC_VER
 
-namespace phmap {
+namespace muc::impl::phmap {
 
 template <class T> using Allocator = typename std::allocator<T>;
 
@@ -410,13 +410,13 @@ inline void AssertHashEnabled
 
 }  // namespace type_traits_internal
 
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 
 // -----------------------------------------------------------------------------
 //          hash_policy_traits
 // -----------------------------------------------------------------------------
-namespace phmap {
+namespace muc::impl::phmap {
 namespace priv {
 
 // Defines how slots are initialized/destroyed/moved.
@@ -582,14 +582,14 @@ private:
 };
 
 }  // namespace priv
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 // -----------------------------------------------------------------------------
 // file utility.h
 // -----------------------------------------------------------------------------
 
 // --------- identity.h
-namespace phmap {
+namespace muc::impl::phmap {
 namespace internal {
 
 template <typename T>
@@ -601,7 +601,7 @@ template <typename T>
 using identity_t = typename identity<T>::type;
 
 }  // namespace internal
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 
 // --------- inline_variable.h
@@ -648,7 +648,7 @@ using identity_t = typename identity<T>::type;
 
 // ----------- throw_delegate
 
-namespace phmap {
+namespace muc::impl::phmap {
 namespace base_internal {
 
 namespace {
@@ -735,11 +735,11 @@ static inline void ThrowStdBadAlloc() {
 }
 
 }  // namespace base_internal
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 // ----------- invoke.h
 
-namespace phmap {
+namespace muc::impl::phmap {
 namespace base_internal {
 
 template <typename Derived>
@@ -879,12 +879,12 @@ InvokeT<F, Args...> Invoke(F&& f, Args&&... args) {
                                            std::forward<Args>(args)...);
 }
 }  // namespace base_internal
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 
 // ----------- utility.h
 
-namespace phmap {
+namespace muc::impl::phmap {
 
 // integer_sequence
 //
@@ -1140,13 +1140,13 @@ T exchange(T& obj, U&& new_value)
 #endif  // _MSC_VER
 
 
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 // -----------------------------------------------------------------------------
 //          memory.h
 // -----------------------------------------------------------------------------
 
-namespace phmap {
+namespace muc::impl::phmap {
 
 template <typename T>
 std::unique_ptr<T> WrapUnique(T* ptr) 
@@ -1650,7 +1650,7 @@ void CopyRange(Allocator& alloc, Iterator destination, InputIterator first,
     }
 }
 }  // namespace memory_internal
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 
 // -----------------------------------------------------------------------------
@@ -1660,13 +1660,13 @@ void CopyRange(Allocator& alloc, Iterator destination, InputIterator first,
 
 #include <optional>  // IWYU pragma: export
 
-namespace phmap {
+namespace muc::impl::phmap {
 using std::bad_optional_access;
 using std::optional;
 using std::make_optional;
 using std::nullopt_t;
 using std::nullopt;
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 #else
 
@@ -1682,7 +1682,7 @@ using std::nullopt;
     #define PHMAP_OPTIONAL_USE_INHERITING_CONSTRUCTORS 1
 #endif
 
-namespace phmap {
+namespace muc::impl::phmap {
 
 class bad_optional_access : public std::exception 
 {
@@ -2703,7 +2703,7 @@ constexpr auto operator>=(const U& v, const optional<T>& x)
     return static_cast<bool>(x) ? static_cast<bool>(v >= *x) : true;
 }
 
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 namespace std {
 
@@ -2719,7 +2719,7 @@ struct hash<phmap::optional<T> >
 // -----------------------------------------------------------------------------
 //          common.h
 // -----------------------------------------------------------------------------
-namespace phmap {
+namespace muc::impl::phmap {
 namespace priv {
 
 template <class, class = void>
@@ -2932,7 +2932,7 @@ struct InsertReturnType
 };
 
 }  // namespace priv
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 
 #ifdef ADDRESS_SANITIZER
@@ -2943,7 +2943,7 @@ struct InsertReturnType
 //  span.h
 // ---------------------------------------------------------------------------
 
-namespace phmap {
+namespace muc::impl::phmap {
 
 template <typename T>
 class Span;
@@ -3687,12 +3687,12 @@ template <int&... ExplicitArgumentBarrier, typename T, size_t N>
 constexpr Span<const T> MakeConstSpan(const T (&array)[N]) noexcept {
   return Span<const T>(array, N);
 }
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 // ---------------------------------------------------------------------------
 //  layout.h
 // ---------------------------------------------------------------------------
-namespace phmap {
+namespace muc::impl::phmap {
 namespace priv {
 
 // A type wrapper that instructs `Layout` to use the specific alignment for the
@@ -4250,7 +4250,7 @@ inline void SanitizerUnpoisonObject(const T* object) {
 }
 
 }  // namespace priv
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 
 // ---------------------------------------------------------------------------
@@ -4346,7 +4346,7 @@ inline void SanitizerUnpoisonObject(const T* object) {
 #define PHMAP_TS_UNCHECKED_READ(x) thread_safety_analysis::ts_unchecked_read(x)
 
 
-namespace phmap {
+namespace muc::impl::phmap {
 namespace thread_safety_analysis {
 
 // Takes a reference to a guarded data member, and returns an unguarded
@@ -4580,7 +4580,7 @@ public:
 }  // phmap
 
 
-namespace phmap {
+namespace muc::impl::phmap {
 
 #ifdef BOOST_THREAD_LOCK_OPTIONS_HPP
     using defer_lock_t  = boost::defer_lock_t;
@@ -5109,4 +5109,4 @@ public:
 #endif
 
 
-#endif // phmap_base_h_guard_
+#endif // muc_impl_phmap_base_h_guard_

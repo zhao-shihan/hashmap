@@ -1,5 +1,5 @@
-#if !defined(phmap_utils_h_guard_)
-#define phmap_utils_h_guard_
+#if !defined(muc_impl_phmap_utils_h_guard_)
+#define muc_impl_phmap_utils_h_guard_
 
 // ---------------------------------------------------------------------------
 // Copyright (c) 2019, Gregory Popovitch - greg7mdp@gmail.com
@@ -40,7 +40,7 @@
     namespace absl { template <class T> struct Hash; };
 #endif
 
-namespace phmap
+namespace muc::impl::phmap
 {
 
 // ---------------------------------------------------------------
@@ -398,10 +398,10 @@ private:
 #endif
 
 
-}  // namespace phmap
+}  // namespace muc::impl::phmap
 
 #ifdef _MSC_VER
      #pragma warning(pop)  
 #endif
 
-#endif // phmap_utils_h_guard_
+#endif // muc_impl_phmap_utils_h_guard_

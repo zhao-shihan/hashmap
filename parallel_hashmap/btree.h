@@ -31,8 +31,8 @@
 // limitations under the License.
 // ---------------------------------------------------------------------------
 
-#ifndef PHMAP_BTREE_BTREE_CONTAINER_H_
-#define PHMAP_BTREE_BTREE_CONTAINER_H_
+#ifndef muc_impl_PHMAP_BTREE_BTREE_CONTAINER_H_
+#define muc_impl_PHMAP_BTREE_BTREE_CONTAINER_H_
 
 #ifdef _MSC_VER
     #pragma warning(push)  
@@ -75,7 +75,7 @@
     #define PHMAP_META_INTERNAL_STD_CONSTRUCTION_TRAITS_DONT_CHECK_DESTRUCTION 1
 #endif
 
-namespace phmap {
+namespace muc::impl::phmap {
 
     namespace type_traits_internal {
 
@@ -715,7 +715,7 @@ namespace phmap {
 }
 
 
-namespace phmap {
+namespace muc::impl::phmap {
 
 namespace priv {
 
@@ -4073,4 +4073,4 @@ namespace priv {
 #endif
 
 
-#endif  // PHMAP_BTREE_BTREE_CONTAINER_H_
+#endif  // muc_impl_PHMAP_BTREE_BTREE_CONTAINER_H_
